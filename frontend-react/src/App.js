@@ -1,7 +1,7 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Beranda from './components/Beranda';
-import Navbar from './components/Navbar';
-import ManajemenBuku from './components/ManajemenBuku';
+import { BrowserRouter, Routes, Route } from "react-router-dom"; 
+import Beranda from "./components/Beranda";
+import Navbar from "./components/Navbar";
+import ManajemenBuku from "./components/ManajemenBuku";
 
 function App() {
   return (
@@ -10,9 +10,8 @@ function App() {
         <Navbar />
 
         <Routes>
-          <Route path='/' exact element={<Beranda />} />
-
-          <Route path='/manajemen-buku' exact element={<ManajemenBuku />} />
+          <Route path="/" exact element={<Beranda />} />
+          <Route path="/manajemen-buku" exact element={<ManajemenBuku />} />
         </Routes>
       </BrowserRouter>
     </div>

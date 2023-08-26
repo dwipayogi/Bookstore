@@ -1,6 +1,15 @@
 import React from "react";
 
-function TabelBuku(){
+function TabelBuku({ showEdit, books, requestToDelete }){
+
+    function editData(book){
+        showEdit(book);
+    }
+
+    function deleteData(book){
+        requestToDelete(book);
+    }
+
     return (
         <div>
             <h4>Tabel Buku</h4>
@@ -14,15 +23,17 @@ function TabelBuku(){
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Laskar Pelangi</td>
-                        <td>Andrea Hirata</td>
-                        <td>
-                            <button className="btn btn-sm btn-warning mx-2" >Edit</button>
-                            <button className="btn btn-sm btn-danger" >Delete</button>
-                        </td>
-                    </tr>
+                    {books.map((book, index) => (
+                        <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{book.judul}</td>
+                            <td>{book.pengarang}</td>
+                            <td>
+                                <button className="btn btn-sm btn-warning mx-2" onClick={() => editData(book)}>Edit</button>
+                                <button className="btn btn-sm btn-danger" onClick={() => deleteData(book)}>Delete</button>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
